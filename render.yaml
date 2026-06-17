@@ -3,9 +3,8 @@ services:
     name: shivshakti-api
     runtime: node
     plan: free
-    rootDir: backend
-    buildCommand: npm install --include=dev && npm run build
-    startCommand: npm run start:prod
+    buildCommand: npm install && npm run build -w backend
+    startCommand: npm run start:prod -w backend
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
