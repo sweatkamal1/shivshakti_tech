@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #0052cc;
+  --color-brand-dark: #003d99;
+  --color-brand-light: #e8f1ff;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #ffffff;
+  color: #1e293b;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0052cc, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-md bg-[#0052cc] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#003d99];
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-md border-2 border-[#0052cc] px-6 py-3 text-sm font-semibold text-[#0052cc] transition hover:bg-[#e8f1ff];
+}
+
+.btn-white {
+  @apply inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-[#0052cc] shadow transition hover:bg-slate-50;
+}
+
+.input {
+  @apply w-full rounded-md border border-slate-300 bg-white px-4 py-2.5 text-slate-800 placeholder:text-slate-400 focus:border-[#0052cc] focus:outline-none focus:ring-2 focus:ring-[#0052cc]/20;
+}
+
+.card {
+  @apply rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md;
+}
+
+.section-title {
+  @apply text-3xl font-bold tracking-tight text-slate-900 md:text-4xl;
+}
+
+.section-subtitle {
+  @apply mt-3 max-w-2xl text-base leading-relaxed text-slate-600;
+}
+
+.section-padding {
+  @apply px-4 py-16 md:py-24;
+}
+
+.bg-muted {
+  background-color: #f8fafc;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.nav-link {
+  @apply rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-[#0052cc];
+}
