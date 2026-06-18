@@ -42,7 +42,8 @@ export function Seo({
   noindex = false,
 }: SeoProps) {
   useEffect(() => {
-    const url = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`.replace(/\/$/, path ? undefined : "/");
+    const normalizedPath = path ? (path.startsWith("/") ? path : `/${path}`) : "";
+    const url = normalizedPath ? `${SITE_URL}${normalizedPath}` : `${SITE_URL}/`;
     const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
 
     document.title = fullTitle;
