@@ -13,7 +13,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(svg|ico|woff2))",
+      "source": "/shivshakti-logo.svg",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
