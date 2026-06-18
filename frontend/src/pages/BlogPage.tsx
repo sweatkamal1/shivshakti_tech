@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import { publicApi, type BlogPost } from "../api/client";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
 
 export function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -16,6 +17,11 @@ export function BlogPage() {
 
   return (
     <>
+      <Seo
+        title="Blog & Insights"
+        description="IT trends, web development tips & digital transformation guides from ShivShakti Technology, Bhagalpur."
+        path="/blog"
+      />
       <PageHero title="Insights & Blog" subtitle="Technology trends, tips, and company updates" />
       <div className="mx-auto max-w-7xl px-4 pb-20">
         {error && <p className="mb-4 text-center text-red-400">{error}</p>}

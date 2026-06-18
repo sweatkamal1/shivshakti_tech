@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { publicApi, type BlogPost } from "../api/client";
 import { DetailPageState } from "../components/DetailPageState";
 import { FadeIn } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
 import { usePublicResource } from "../hooks/usePublicResource";
 
 export function BlogDetailPage() {
@@ -19,6 +20,12 @@ export function BlogDetailPage() {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16">
+      <Seo
+        title={post.metaTitle || post.title}
+        description={post.metaDescription || post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+      />
       <FadeIn>
         <Link to="/blog" className="mb-6 inline-block text-sm font-medium text-brand hover:underline">
           ← Back to Blog

@@ -16,6 +16,7 @@ import { FadeIn } from "../components/motion/FadeIn";
 import {
   cloudServices, platformServices, portfolioCases, staffRoles, whyChooseItems,
 } from "../lib/site-data";
+import { Seo } from "../components/Seo";
 
 export function HomePage() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -30,6 +31,11 @@ export function HomePage() {
 
   return (
     <>
+      <Seo
+        title="ShivShakti Technology"
+        description="ShivShakti Technology — IT consulting, web & mobile development, Salesforce & cloud services in Bhagalpur, Bihar. Digital transformation partner."
+        path="/"
+      />
       {/* Hero — modern charted style */}
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_#dbeafe_0,_#f8fafc_45%,_#ffffff_100%)]">
         <div className="pointer-events-none absolute -left-20 top-10 h-60 w-60 rounded-full bg-brand/10 blur-3xl" />

@@ -1,10 +1,16 @@
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Seo } from "../components/Seo";
 
 export function AboutPage() {
   return (
     <>
+      <Seo
+        title="About Us"
+        description="Learn about ShivShakti Technology — IT consulting & software development company in Bhagalpur, Bihar, serving clients worldwide."
+        path="/about"
+      />
       <PageHero title="About ShivShakti Technology" subtitle="Your trusted IT consulting & digital transformation partner" />
       <section className="section-padding">
         <div className="mx-auto max-w-4xl px-4">

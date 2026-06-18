@@ -1,6 +1,7 @@
 import { PrismaClient, Role } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { SERVICES } from "./services-data.js";
+import { SEO_BLOG_POSTS } from "./seo-blog-posts.js";
 
 const prisma = new PrismaClient();
 
@@ -66,32 +67,32 @@ async function main() {
     });
   }
 
-  const blogPosts = [
-    {
-      title: "Why Modern Businesses Need Custom Software in 2026",
-      slug: "why-custom-software-2026",
-      excerpt: "Off-the-shelf tools often fall short. Here's why tailored solutions drive ROI.",
-      content: "In today's competitive landscape, businesses that invest in custom software gain significant advantages in efficiency, scalability, and customer experience.\n\nCustom solutions align perfectly with your workflows, integrate seamlessly with existing systems, and evolve as your business grows.\n\nAt ShivShakti Technology, we help companies transform their operations through purpose-built applications.",
-      isPublished: true,
-      publishedAt: new Date(),
-      tags: ["Software", "Business", "Technology"],
-    },
-    {
-      title: "5 Signs Your Company Needs a Digital Transformation",
-      slug: "signs-digital-transformation",
-      excerpt: "Recognize the warning signs before competitors leave you behind.",
-      content: "Manual processes, disconnected systems, and slow decision-making are clear indicators that your organization needs digital transformation.\n\nFrom cloud migration to process automation, the right technology partner can guide your journey.\n\nContact us for a free digital readiness assessment.",
-      isPublished: true,
-      publishedAt: new Date(),
-      tags: ["Digital Transformation", "Strategy"],
-    },
-  ];
-
-  for (const post of blogPosts) {
+  for (const post of SEO_BLOG_POSTS) {
     await prisma.blogPost.upsert({
       where: { slug: post.slug },
-      update: {},
-      create: post,
+      update: {
+        title: post.title,
+        excerpt: post.excerpt,
+        content: post.content,
+        metaTitle: post.metaTitle,
+        metaDescription: post.metaDescription,
+        tags: [...post.tags],
+        isPublished: true,
+        publishedAt: new Date(),
+        author: "ShivShakti Technology",
+      },
+      create: {
+        title: post.title,
+        slug: post.slug,
+        excerpt: post.excerpt,
+        content: post.content,
+        metaTitle: post.metaTitle,
+        metaDescription: post.metaDescription,
+        tags: [...post.tags],
+        isPublished: true,
+        publishedAt: new Date(),
+        author: "ShivShakti Technology",
+      },
     });
   }
 

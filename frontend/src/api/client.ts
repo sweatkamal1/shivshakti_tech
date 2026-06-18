@@ -73,6 +73,8 @@ export interface BlogPost {
   coverImage?: string;
   author: string;
   tags: string[];
+  metaTitle?: string;
+  metaDescription?: string;
   publishedAt?: string;
 }
 

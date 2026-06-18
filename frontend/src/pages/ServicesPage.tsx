@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { publicApi, type Service } from "../api/client";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
 
 export function ServicesPage() {
   const [services, setServices] = useState<Service[]>([]);
@@ -13,6 +14,11 @@ export function ServicesPage() {
 
   return (
     <>
+      <Seo
+        title="IT Services"
+        description="Web development, mobile apps, Salesforce, cloud migration & IT consulting by ShivShakti Technology, Bhagalpur."
+        path="/services"
+      />
       <PageHero
         title="Our Services"
         subtitle="End-to-end technology services for development, design, marketing, and consulting."

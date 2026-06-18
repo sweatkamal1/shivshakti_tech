@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShieldCheck, BriefcaseBusiness, Headset } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { Seo } from "../components/Seo";
 
 export function LoginPage() {
   const { login } = useAuth();
@@ -23,6 +24,7 @@ export function LoginPage() {
 
   return (
     <div className="bg-muted px-4 py-12 md:py-16">
+      <Seo title="Login" description="Client and admin login for ShivShakti Technology." path="/login" noindex />
       <div className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-2">
         <div className="bg-gradient-to-br from-brand via-[#006ce0] to-[#0092ff] p-8 text-white md:p-10">
           <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
