@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { publicApi, type Service } from "../api/client";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
 import { Seo } from "../components/Seo";
+import { PAGE_SEO } from "../lib/seo-config";
 
 export function ServicesPage() {
   const [services, setServices] = useState<Service[]>([]);
@@ -15,9 +16,13 @@ export function ServicesPage() {
   return (
     <>
       <Seo
-        title="IT Services"
-        description="Web development, mobile apps, Salesforce, cloud migration & IT consulting by ShivShakti Technology, Bhagalpur."
+        title={PAGE_SEO.services.title}
+        description={PAGE_SEO.services.description}
         path="/services"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]}
       />
       <PageHero
         title="Our Services"

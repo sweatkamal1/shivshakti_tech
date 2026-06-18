@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../api/client";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
 import { Seo } from "../components/Seo";
+import { PAGE_SEO } from "../lib/seo-config";
 
 const schema = z.object({
   name: z.string().min(2),
@@ -39,9 +40,13 @@ export function ContactPage() {
   return (
     <>
       <Seo
-        title="Contact Us"
-        description="Contact ShivShakti Technology in Bhagalpur, Bihar. Call +91 9262689110 for web development, IT consulting & software projects."
+        title={PAGE_SEO.contact.title}
+        description={PAGE_SEO.contact.description}
         path="/contact"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
       />
       <PageHero title="Contact Us" subtitle="We would love to hear from you" />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 lg:grid-cols-2">

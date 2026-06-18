@@ -3,7 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { api, publicApi, type Career } from "../api/client";
 import { DetailPageState } from "../components/DetailPageState";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
 import { usePublicResource } from "../hooks/usePublicResource";
+import { jobPostingSchema } from "../lib/structured-data";
 
 export function CareerDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -37,6 +39,17 @@ export function CareerDetailPage() {
 
   return (
     <>
+      <Seo
+        title={`${career.title} — Careers`}
+        description={`${career.title} at ShivShakti Technology, ${career.location}. ${career.employmentType} role in software development, Bhagalpur, Bihar.`}
+        path={`/careers/${career.slug}`}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Careers", path: "/careers" },
+          { name: career.title, path: `/careers/${career.slug}` },
+        ]}
+        jsonLd={jobPostingSchema(career)}
+      />
       <PageHero title={career.title} subtitle={`${career.department} · ${career.location} · ${career.employmentType}`} />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 lg:grid-cols-2">
         <FadeIn>

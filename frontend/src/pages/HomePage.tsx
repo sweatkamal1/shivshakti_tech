@@ -17,6 +17,9 @@ import {
   cloudServices, platformServices, portfolioCases, staffRoles, whyChooseItems,
 } from "../lib/site-data";
 import { Seo } from "../components/Seo";
+import { LocalSeoSection } from "../components/LocalSeoSection";
+import { PAGE_SEO } from "../lib/seo-config";
+import { homePageSchemas } from "../lib/structured-data";
 
 export function HomePage() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -32,9 +35,10 @@ export function HomePage() {
   return (
     <>
       <Seo
-        title="ShivShakti Technology"
-        description="ShivShakti Technology — IT consulting, web & mobile development, Salesforce & cloud services in Bhagalpur, Bihar. Digital transformation partner."
+        title={PAGE_SEO.home.title}
+        description={PAGE_SEO.home.description}
         path="/"
+        jsonLd={homePageSchemas()}
       />
       {/* Hero — modern charted style */}
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_#dbeafe_0,_#f8fafc_45%,_#ffffff_100%)]">
@@ -47,11 +51,11 @@ export function HomePage() {
               Digital Transformation Partner
             </p>
             <h1 className="text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-[3.25rem]">
-              Build smarter digital systems with enterprise-grade execution
+              Software Development Company in Bhagalpur &amp; Bihar
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
-              We design, build, and scale cloud-native products with clear strategy, transparent delivery,
-              and measurable business outcomes.
+              ShivShakti Technology delivers website development, mobile apps, CRM software, and custom
+              IT solutions for businesses across Bihar and India.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-primary inline-flex">
@@ -304,6 +308,8 @@ export function HomePage() {
           </div>
         </section>
       )}
+
+      <LocalSeoSection />
 
       {/* Contact */}
       <section id="contact" className="section-padding bg-slate-50">

@@ -1,4 +1,6 @@
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
+import { PAGE_SEO } from "../lib/seo-config";
 
 interface LegalPageProps {
   title: string;
@@ -68,9 +70,35 @@ const termsSections = [
 ];
 
 export function PrivacyPage() {
-  return <LegalPage title="Privacy Policy" sections={privacySections} />;
+  return (
+    <>
+      <Seo
+        title={PAGE_SEO.privacy.title}
+        description={PAGE_SEO.privacy.description}
+        path="/privacy"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy" },
+        ]}
+      />
+      <LegalPage title="Privacy Policy" sections={privacySections} />
+    </>
+  );
 }
 
 export function TermsPage() {
-  return <LegalPage title="Terms & Conditions" sections={termsSections} />;
+  return (
+    <>
+      <Seo
+        title={PAGE_SEO.terms.title}
+        description={PAGE_SEO.terms.description}
+        path="/terms"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Terms & Conditions", path: "/terms" },
+        ]}
+      />
+      <LegalPage title="Terms & Conditions" sections={termsSections} />
+    </>
+  );
 }

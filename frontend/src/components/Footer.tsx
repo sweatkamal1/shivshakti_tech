@@ -60,7 +60,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="mb-4 flex items-center gap-2">
-            <img src="/shivshakti-logo.svg" alt="ShivShakti Logo" className="h-9 w-9 rounded-md object-contain" />
+            <img
+              src="/shivshakti-logo.svg"
+              alt="ShivShakti Technology logo"
+              width={36}
+              height={36}
+              loading="lazy"
+              className="h-9 w-9 rounded-md object-contain"
+            />
             <span className="font-bold text-white">ShivShakti Technology</span>
           </div>
           <div className="space-y-2 text-sm">

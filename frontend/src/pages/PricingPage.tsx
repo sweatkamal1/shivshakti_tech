@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
+import { PAGE_SEO } from "../lib/seo-config";
 
 export function PricingPage() {
   const plans = [
@@ -11,7 +13,16 @@ export function PricingPage() {
 
   return (
     <>
-      <PageHero title="Pricing Plans" subtitle="Transparent pricing for every stage of growth" />
+      <Seo
+        title={PAGE_SEO.pricing.title}
+        description={PAGE_SEO.pricing.description}
+        path="/pricing"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ]}
+      />
+      <PageHero title="Pricing Plans" subtitle="Transparent pricing for website development & software projects in Bihar" />
       <div className="mx-auto max-w-7xl px-4 pb-20">
         <div className="grid gap-6 md:grid-cols-3">
           {plans.map((p, i) => (

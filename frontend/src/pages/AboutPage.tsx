@@ -2,14 +2,19 @@ import { FadeIn, PageHero } from "../components/motion/FadeIn";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Seo } from "../components/Seo";
+import { PAGE_SEO } from "../lib/seo-config";
 
 export function AboutPage() {
   return (
     <>
       <Seo
-        title="About Us"
-        description="Learn about ShivShakti Technology — IT consulting & software development company in Bhagalpur, Bihar, serving clients worldwide."
+        title={PAGE_SEO.about.title}
+        description={PAGE_SEO.about.description}
         path="/about"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
       />
       <PageHero title="About ShivShakti Technology" subtitle="Your trusted IT consulting & digital transformation partner" />
       <section className="section-padding">

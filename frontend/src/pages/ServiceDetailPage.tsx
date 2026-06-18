@@ -3,7 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { publicApi, type Service } from "../api/client";
 import { DetailPageState } from "../components/DetailPageState";
 import { FadeIn, PageHero } from "../components/motion/FadeIn";
+import { Seo } from "../components/Seo";
 import { usePublicResource } from "../hooks/usePublicResource";
+import { serviceSchema } from "../lib/structured-data";
 
 export function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -17,8 +19,21 @@ export function ServiceDetailPage() {
     return <DetailPageState loading={false} notFound backTo="/services" backLabel="Back to Services" />;
   }
 
+  const metaDescription = `${service.shortDescription} — ShivShakti Technology, software development company in Bhagalpur, Bihar.`;
+
   return (
     <>
+      <Seo
+        title={`${service.title} Services in Bihar`}
+        description={metaDescription.slice(0, 160)}
+        path={`/services/${service.slug}`}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ]}
+        jsonLd={serviceSchema(service.title, service.description, service.slug)}
+      />
       <PageHero title={service.title} subtitle={service.shortDescription} />
       <section className="section-padding">
         <div className="mx-auto max-w-4xl px-4">
@@ -46,7 +61,10 @@ export function ServiceDetailPage() {
                 ))}
               </div>
             )}
-            <Link to="/contact" className="btn-primary inline-flex">Get a Quote</Link>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/contact" className="btn-primary inline-flex">Get a Quote</Link>
+              <Link to="/services" className="btn-outline inline-flex">View All Services</Link>
+            </div>
           </FadeIn>
         </div>
       </section>

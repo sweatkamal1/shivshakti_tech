@@ -40,7 +40,14 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-sm backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/shivshakti-logo.svg" alt="ShivShakti Logo" className="h-11 w-11 rounded-lg object-contain ring-1 ring-slate-200" />
+          <img
+            src="/shivshakti-logo.svg"
+            alt="ShivShakti Technology — Software Company in Bhagalpur, Bihar"
+            width={44}
+            height={44}
+            fetchPriority="high"
+            className="h-11 w-11 rounded-lg object-contain ring-1 ring-slate-200"
+          />
           <div className="leading-tight">
             <p className="text-[1.05rem] font-bold text-slate-900">ShivShakti</p>
             <p className="text-sm font-medium text-slate-500">Technology</p>

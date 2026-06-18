@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CircleCheckBig, Rocket, Building2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { Seo } from "../components/Seo";
 
 export function RegisterPage() {
   const { register: registerUser } = useAuth();
@@ -29,6 +30,7 @@ export function RegisterPage() {
 
   return (
     <div className="bg-muted px-4 py-12 md:py-16">
+      <Seo title="Register" description="Create a ShivShakti Technology client account." path="/register" noindex />
       <div className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-2">
         <div className="bg-slate-900 p-8 text-white md:p-10">
           <p className="mb-3 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
